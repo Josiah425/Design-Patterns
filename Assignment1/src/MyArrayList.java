@@ -3,29 +3,32 @@ public class MyArrayList {
 	private final int INITIAL_SIZE = 50;
 	private int[] arr;
 	private int inserted;
+	private int size = INITIAL_SIZE;
 	
 	MyArrayList(){
 		arr = new int[INITIAL_SIZE];
+		//set values to 10001, out of range of values
+		for(int i = 0; i < INITIAL_SIZE; i++){
+			arr[i] = 10001;
+		}
 		inserted = 0;
 	}
 	
 	void insertSorted(int newValue){
 		if(newValue < 0 || newValue > 10000){
-			System.out.println("Array List can only accept values between 0 and 10000, request ignored\n");
+			System.err.println("Array List can only accept values between 0 and 10000, request ignored\n");
 			return;
 		}
-		if(inserted >= INITIAL_SIZE+25){
-			System.out.println("Array List reached maximum size, request ignored\n");
-			return;
-		}
-		if(inserted == INITIAL_SIZE && arr.length != INITIAL_SIZE+25){
-			int[] temp = new int[INITIAL_SIZE];
-			for(int i = 0; i < INITIAL_SIZE; i++){
+		if(inserted == size){
+			int[] temp = new int[size];
+			for(int i = 0; i < size; i++){
 				temp[i] = arr[i];
 			}
-			arr = new int[INITIAL_SIZE+25];
-			for(int i = 0; i < INITIAL_SIZE; i++){
-				arr[i] = temp[i];
+			size = (int)(size*.5)+size;
+			arr = new int[size];
+			for(int i = 0; i < size; i++){
+				if(i < inserted) arr[i] = temp[i];
+				else arr[i] = 10001;
 			}
 		}
 		boolean indexFound = false;
@@ -45,7 +48,8 @@ public class MyArrayList {
 	
 	void removeValue(int value){
 		if(inserted == 0){
-			System.out.println("Array List is empty, request ignored\n");
+			System.err.println("Array List is empty, request ignored\n");
+			return;
 		}
 		int shift = 0;
 		for(int i = 0; i < arr.length; i++){
@@ -69,10 +73,9 @@ public class MyArrayList {
 		inserted -= shift;
 	}
 	
-	//TODO what if there is more than one index with that value
 	int indexOf(int value){
 		if(value < 0 || value > 10000){
-			System.out.println("Values can only be between 0 and 10000\n");
+			System.err.println("Values can only be between 0 and 10000\n");
 			return -1;
 		}
 		for(int i = 0; i < inserted; i++){
@@ -91,5 +94,9 @@ public class MyArrayList {
 			sum += arr[i];
 		}
 		return sum;
+	}
+	
+	void toStr(){
+		for(int i = 0; i < inserted; i++) System.out.println(i + ": " + arr[i] + '\n');
 	}
 }

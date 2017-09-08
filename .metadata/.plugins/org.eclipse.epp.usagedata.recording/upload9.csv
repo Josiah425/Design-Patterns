@@ -1,0 +1,26 @@
+what,kind,bundleId,bundleVersion,description,time
+ws,sysinfo,,,"win32",1504841147401
+locale,sysinfo,,,"en_US",1504841147401
+processors,sysinfo,,,"8",1504841147401
+java.runtime.name,sysinfo,,,"Java(TM) SE Runtime Environment",1504841147401
+java.runtime.version,sysinfo,,,"1.8.0_144-b01",1504841147401
+java.specification.name,sysinfo,,,"Java Platform API Specification",1504841147401
+java.specification.vendor,sysinfo,,,"Oracle Corporation",1504841147401
+java.specification.version,sysinfo,,,"1.8",1504841147401
+java.vendor,sysinfo,,,"Oracle Corporation",1504841147401
+java.version,sysinfo,,,"1.8.0_144",1504841147401
+java.vm.info,sysinfo,,,"mixed mode",1504841147401
+java.vm.name,sysinfo,,,"Java HotSpot(TM) Client VM",1504841147401
+java.vm.specification.name,sysinfo,,,"Java Virtual Machine Specification",1504841147401
+java.vm.specification.vendor,sysinfo,,,"Oracle Corporation",1504841147401
+java.vm.specification.version,sysinfo,,,"1.8",1504841147401
+java.vm.vendor,sysinfo,,,"Oracle Corporation",1504841147401
+java.vm.version,sysinfo,,,"25.144-b01",1504841147401
+started,bundle,org.eclipse.ltk.core.refactoring,3.5.0.v20090513-2000,"org.eclipse.ltk.core.refactoring",1504841151201
+started,bundle,org.eclipse.ltk.ui.refactoring,3.4.100.v20090604,"org.eclipse.ltk.ui.refactoring",1504841152006
+started,bundle,org.eclipse.compare.core,3.5.0.I20090430-0408,"org.eclipse.compare.core",1504841152089
+opened,editor,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.CompilationUnitEditor",1504841152166
+activated,editor,org.eclipse.jdt.ui,3.5.0.v20090604,"org.eclipse.jdt.ui.CompilationUnitEditor",1504841152298
+started,bundle,org.eclipse.core.variables,3.2.200.v20090521,"org.eclipse.core.variables",1504841153068
+deactivated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1504841175948
+activated,workbench,org.eclipse.ui.workbench,3.5.0.I20090603-2000,"",1504898849448

@@ -2024,3 +2024,13 @@ Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.
 
 !ENTRY org.eclipse.jdt.core 2 0 2017-09-06 16:05:09.793
 !MESSAGE The Java indexing could not index C:/Program Files (x86)/Java/jre1.8.0_144/lib/ext/nashorn.jar|jdk/nashorn/internal/objects/NativeURIError.class. This .class file doesn't follow the class file format specification. Please report this issue against the .class file vendor
+!SESSION 2017-09-07 23:25:37.927 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-09-07 23:25:41.688
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

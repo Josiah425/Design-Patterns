@@ -1,0 +1,11 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileInputStream;
+
+public class FileProcessor {
+	String readLine(File in){
+		String line;
+		FileInputStream fis = new FileInputStream(in);
+		return line = in.readLine();
+	}
+}

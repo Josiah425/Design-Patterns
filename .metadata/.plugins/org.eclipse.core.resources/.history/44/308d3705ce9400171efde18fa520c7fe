@@ -1,0 +1,4 @@
+
+public class Results implements FileDisplayInterface, StdoutDisplayInterface{
+	private String[] s;
+}
