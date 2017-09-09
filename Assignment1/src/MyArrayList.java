@@ -97,6 +97,7 @@ public class MyArrayList {
 	}
 	
 	void toStr(){
-		for(int i = 0; i < inserted; i++) System.out.println(i + ": " + arr[i] + '\n');
+		for(int i = 0; i < inserted; i++) System.out.print(i + ": " + arr[i] + ", ");
+		System.out.println();
 	}
 }

@@ -5,12 +5,22 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class FileProcessor {
-	public String readLine(File fin) throws IOException{
+	private FileInputStream fis;
+	private BufferedReader br;
+	
+	FileProcessor(File fin) throws IOException{
+		fis = new FileInputStream(fin);
+		br = new BufferedReader(new InputStreamReader(fis));
+	}
+	
+	public String readLine() throws IOException{
 		String line;
-		FileInputStream fis = new FileInputStream(fin);
-		BufferedReader br = new BufferedReader(new InputStreamReader(fis));
 		line = br.readLine();
-		br.close();
 		return line;
+	}
+	
+	public void close() throws IOException{
+		br.close();
+		fis.close();
 	}
 }

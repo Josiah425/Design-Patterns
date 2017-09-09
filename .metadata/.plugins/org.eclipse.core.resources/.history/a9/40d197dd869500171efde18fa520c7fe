@@ -1,0 +1,23 @@
+import java.io.File;
+
+public class Driver {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		File fin;
+		FileProcessor fProcessor = new FileProcessor();
+		MyArrayList list = new MyArrayList();
+		try{
+			fin = new File(args[0]);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		fProcessor = new FileProcessor();
+
+	}
+
+}

@@ -1,0 +1,24 @@
+import java.io.File;
+
+public class Driver {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		File fin;
+		FileProcessor fProcessor = new FileProcessor();
+		MyArrayList list = new MyArrayList();
+		try{
+			fin = new File(args[0]);
+			String line;
+			line = fProcessor.readLine(fin);
+			list.insertSorted((int(line));
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+	}
+
+}

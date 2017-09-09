@@ -1,0 +1,23 @@
+import java.io.File;
+
+public class MyArrayListTest {
+	private MyArrayList list = new MyArrayList();
+	
+	public boolean insertTest(File fin){
+		try{
+			FileProcessor fProcessor = new FileProcessor(fin);
+			String line = fProcessor.readLine();
+			while(line != null){
+				int integer = Integer.parseInt(line);
+				list.insertSorted(integer);
+				line = fProcessor.readLine();
+				System.out.println(line);
+			}
+			fProcessor.closeBr();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return true;
+	}
+}
