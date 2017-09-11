@@ -1,0 +1,25 @@
+import java.io.File;
+
+public class Driver {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		File fin;
+		MyArrayListTest tests = new MyArrayListTest();
+		MyArrayList myArrayList = new MyArrayList();
+		Results results = new Results();
+		try{
+			fin = new File(args[0]);
+			tests.testMe(myArrayList, results);
+			for(int i = 0; i < results.getSSize())
+			results.writeToStdout(results.getS());
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+	}
+
+}

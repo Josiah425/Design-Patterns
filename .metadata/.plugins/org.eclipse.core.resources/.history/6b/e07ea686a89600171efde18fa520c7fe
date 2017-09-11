@@ -1,0 +1,63 @@
+import java.io.File;
+
+public class MyArrayListTest {
+	
+	public void testMe(MyArrayList myArrayList, Results results){
+		insertUniquesTest(myArrayList);
+	}
+	
+	public boolean insertUniquesTest(){
+		
+		return true;
+	}
+	
+	public boolean removeUniquesTest(){
+		
+		return true;
+	}
+	
+	public boolean insertDuplicate(){
+		
+		return true;
+	}
+	
+	public boolean removeDuplicate(){
+		
+		return true;
+	}
+	
+	public boolean insertOverFifty(){
+		
+		return true;
+	}
+	
+	public boolean removeOverFifty(){
+		
+		return true;
+	}
+	
+	public boolean removeEmpty(){
+		
+		return true;
+	}
+	
+	public boolean insertOutOfRange(){
+		
+		return true;
+	}
+	
+	public boolean indexOfNotFound(){
+		
+		return true;
+	}
+	
+	public boolean sumOfList(File fin){
+		
+		return true;
+	}
+	
+	public boolean sizeOfList(File fin){
+		
+		return true;
+	}
+}

@@ -1,0 +1,32 @@
+import java.io.File;
+
+public class Driver {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		File fin;
+		MyArrayListTest tests = new MyArrayListTest();
+		Results results = new Results();
+		try{
+			fin = new File(args[0]);
+			tests.insertUniquesTest(fin);
+			tests.removeUniquesTest(fin);
+			tests.insertDuplicate(fin);
+			tests.removeDuplicate(fin);
+			tests.insertOverFifty(fin);
+			tests.removeOverFifty(fin);
+			tests.removeEmpty(fin);
+			tests.insertOutOfRange(fin);
+			tests.indexOfNotFound(fin);
+			tests.sumOfList(fin);
+			tests.sizeOfList(fin);
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+
+	}
+
+}

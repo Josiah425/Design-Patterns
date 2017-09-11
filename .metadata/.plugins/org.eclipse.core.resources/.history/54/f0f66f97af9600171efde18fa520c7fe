@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+
+
+public class Results implements FileDisplayInterface, StdoutDisplayInterface{
+	private ArrayList<String> s;
+	private Iterator it;
+	
+	public void writeToFile(String s){
+		
+	}
+	
+	public void writeToStdout(String s){
+		System.out.println(s);
+	}
+	
+	public void storeNewResults(String s){
+		
+	}
+	
+	public String getString(int i){
+		return s[i];
+	}
+	
+	public int getStringArrSize(){
+		return s.length;
+	}
+}

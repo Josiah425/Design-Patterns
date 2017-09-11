@@ -1,0 +1,102 @@
+import java.io.File;
+
+public class MyArrayListTest {
+	
+	public void testMe(MyArrayList myArrayList, Results results){
+		if(insertUniquesTest(myArrayList)){
+			results.storeNewResults("test insert unique elements passed");
+		}
+		else{
+			results.storeNewResults("test insert unique elements failed, " +
+					"element could not be inserted");
+		}
+		if(removeUniquesTest(myArrayList)){
+			results.storeNewResults("test remove unique elements passed");
+		}
+		else{
+			results.storeNewResults("test remove unique elements failed, element could not be removed");
+		}
+		if(insertDuplicate(myArrayList)){
+			results.storeNewResults("test insert duplicate element passed");
+		}
+		if(removeDuplicate(myArrayList)){
+			results.storeNewResults("test remove duplicate element passed");
+		}
+		if(insertOverFifty(myArrayList)){
+			results.storeNewResults("test insert over 50 elements passed");
+		}
+		if(removeOverFifty(myArrayList)){
+			results.storeNewResults("test remove over 50 elements passed");
+		}
+		if(removeEmpty(myArrayList)){
+			results.storeNewResults("test remove from empty array passed");
+		}
+		if(insertOutOfRange(myArrayList)){
+			results.storeNewResults("test insert out of range value passed");
+		}
+		if(indexOfNotFound(myArrayList)){
+			results.storeNewResults("test index of element not found passed");
+		}
+		if(sumOfList(myArrayList)){
+			results.storeNewResults("test sum of elements passed");
+		}
+		if(sizeOfList(myArrayList)){
+			results.storeNewResults("test size of list passed");
+		}
+	}
+	
+	public boolean insertUniquesTest(MyArrayList myArrayList){
+		
+		return true;
+	}
+	
+	public boolean removeUniquesTest(MyArrayList myArrayList){
+		
+		return true;
+	}
+	
+	public boolean insertDuplicate(MyArrayList myArrayList){
+		
+		return true;
+	}
+	
+	public boolean removeDuplicate(MyArrayList myArrayList){
+		
+		return true;
+	}
+	
+	public boolean insertOverFifty(MyArrayList myArrayList){
+		
+		return true;
+	}
+	
+	public boolean removeOverFifty(MyArrayList myArrayList){
+		
+		return true;
+	}
+	
+	public boolean removeEmpty(MyArrayList myArrayList){
+		
+		return true;
+	}
+	
+	public boolean insertOutOfRange(MyArrayList myArrayList){
+		
+		return true;
+	}
+	
+	public boolean indexOfNotFound(MyArrayList myArrayList){
+		
+		return true;
+	}
+	
+	public boolean sumOfList(MyArrayList myArrayList){
+		
+		return true;
+	}
+	
+	public boolean sizeOfList(MyArrayList myArrayList){
+		
+		return true;
+	}
+}

@@ -1,0 +1,103 @@
+import java.io.File;
+
+public class MyArrayListTest {
+	private MyArrayList list = new MyArrayList();
+	
+	public void testMe(MyArrayList myArrayList, Results results){
+		
+	}
+	
+	public boolean insertUniquesTest(){
+		try{
+			FileProcessor fProcessor = new FileProcessor(fin);
+			String line = fProcessor.readLine();
+			while(line != null){
+				int integer = Integer.parseInt(line);
+				list.insertSorted(integer);
+				line = fProcessor.readLine();
+				list.toStr();
+			}
+			fProcessor.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return true;
+	}
+	
+	public boolean removeUniquesTest(){
+		try{
+			FileProcessor fProcessor = new FileProcessor(fin);
+			String line = fProcessor.readLine();
+			while(line != null){
+				int integer = Integer.parseInt(line);
+				list.removeValue(integer);
+				line = fProcessor.readLine();
+				list.toStr();
+			}
+			fProcessor.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return true;
+	}
+	
+	public boolean insertDuplicate(){
+		try{
+			FileProcessor fProcessor = new FileProcessor(fin);
+			String line = fProcessor.readLine();
+			while(line != null){
+				int integer = Integer.parseInt(line);
+				list.insertSorted(integer);
+				line = fProcessor.readLine();
+				list.toStr();
+			}
+			fProcessor.close();
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		return true;
+	}
+	
+	public boolean removeDuplicate(){
+		
+		return true;
+	}
+	
+	public boolean insertOverFifty(){
+		
+		return true;
+	}
+	
+	public boolean removeOverFifty(){
+		
+		return true;
+	}
+	
+	public boolean removeEmpty(){
+		
+		return true;
+	}
+	
+	public boolean insertOutOfRange(){
+		
+		return true;
+	}
+	
+	public boolean indexOfNotFound(){
+		
+		return true;
+	}
+	
+	public boolean sumOfList(File fin){
+		
+		return true;
+	}
+	
+	public boolean sizeOfList(File fin){
+		
+		return true;
+	}
+}

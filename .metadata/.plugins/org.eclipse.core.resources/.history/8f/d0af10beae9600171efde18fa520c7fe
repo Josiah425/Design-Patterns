@@ -1,0 +1,28 @@
+
+public class Results implements FileDisplayInterface, StdoutDisplayInterface{
+	private String[] s;
+	
+	Results(){
+		s
+	}
+	
+	public void writeToFile(String s){
+		
+	}
+	
+	public void writeToStdout(String s){
+		
+	}
+	
+	public void storeNewResults(String s){
+		
+	}
+	
+	public String getString(int i){
+		return s[i];
+	}
+	
+	public int getStringArrSize(){
+		return s.length;
+	}
+}

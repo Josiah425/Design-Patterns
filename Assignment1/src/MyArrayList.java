@@ -1,10 +1,19 @@
-
+/**
+* MyArrayList program that creates the array list data structure
+*
+* @author  Josiah Bailey
+* @since   09/04/2017
+*/
 public class MyArrayList {
 	private final int INITIAL_SIZE = 50;
 	private int[] arr;
 	private int inserted;
 	private int size = INITIAL_SIZE;
 	
+	/**
+	 * Default constructor initializes inserted to 0 and each element
+	 * in array to 10001
+	 */
 	MyArrayList(){
 		arr = new int[INITIAL_SIZE];
 		//set values to 10001, out of range of values
@@ -14,6 +23,13 @@ public class MyArrayList {
 		inserted = 0;
 	}
 	
+	/**
+	 * Places newValue into correct position in array 
+	 * (smallest to highest) and resizes array by 50% if array is 
+	 * full, increments inserted
+	 * 
+	 * @param (int) newValue
+	 */
 	void insertSorted(int newValue){
 		if(newValue < 0 || newValue > 10000){
 			System.err.println("Array List can only accept values between 0 and 10000, request ignored\n");
@@ -46,25 +62,31 @@ public class MyArrayList {
 		inserted++;
 	}
 	
+	/**
+	 * Removes all instances of value from array, restructures array
+	 * in sorted order and decrements inserted based on amount removed
+	 * 
+	 * @param (int) value
+	 */
 	void removeValue(int value){
 		if(inserted == 0){
 			System.err.println("Array List is empty, request ignored\n");
 			return;
 		}
 		int shift = 0;
-		for(int i = 0; i < arr.length; i++){
+		for(int i = 0; i < inserted; i++){
 			if(arr[i] == value){
 				shift++;
 			}
 		}
-		int index = arr.length;
-		for(int j = 0; j < arr.length; j++){
+		int index = inserted;
+		for(int j = 0; j < inserted; j++){
 			if(arr[j] == value){
 				index = j;
 				break;
 			}
 		}
-		for(int i = index; i < arr.length - shift; i++){
+		for(int i = index; i < inserted; i++){
 			arr[i] = arr[i+shift];
 			if(i >= arr.length-2*shift){
 				arr[i+shift] = 10001;
@@ -73,21 +95,38 @@ public class MyArrayList {
 		inserted -= shift;
 	}
 	
+	/**
+	 * Finds the first instance of value in the array and returns the 
+	 * index
+	 * 
+	 * @param (int) value
+	 * @return (int) first index of value in array -> -1 if not found
+	 */
 	int indexOf(int value){
 		if(value < 0 || value > 10000){
 			System.err.println("Values can only be between 0 and 10000\n");
 			return -1;
 		}
 		for(int i = 0; i < inserted; i++){
-			if(arr[i] == value) return arr[i];
+			if(arr[i] == value) return i;
 		}
 		return -1;
 	}
 	
+	/**
+	 * Gets the numbers of valid elements in the array
+	 * 
+	 * @return (int) inserted
+	 */
 	int size(){
 		return inserted;
 	}
 	
+	/**
+	 * Adds all the valid elements in array and returns total
+	 * 
+	 * @return (int) sum
+	 */
 	int sum(){
 		int sum = 0;
 		for(int i = 0; i < inserted; i++){
@@ -96,6 +135,9 @@ public class MyArrayList {
 		return sum;
 	}
 	
+	/**
+	 * Prints to System.out all valid elements in the array
+	 */
 	void toStr(){
 		for(int i = 0; i < inserted; i++) System.out.print(i + ": " + arr[i] + ", ");
 		System.out.println();
