@@ -1,0 +1,24 @@
+
+public class MyArrayListTest {
+	
+	public void testMe(MyArrayList myArrayList, Results results){
+		
+	}
+	
+	
+	public boolean insertOutOfRange(MyArrayList myArrayList){
+		try{
+			myArrayList.insertSorted(10001);
+		}
+		catch(IllegalArgumentException e){
+			System.err.println("Caught expected exception for illegal value");
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean removeElement(MyArrayList myArrayList){
+		myArrayList.removeValue(2);
+		
+	}
+}

@@ -1,196 +1,132 @@
-import java.io.File;
 
 public class MyArrayListTest {
 	
 	public void testMe(MyArrayList myArrayList, Results results){
-		if(insertUniquesTest(myArrayList)){
-			results.storeNewResults("test insert unique elements passed");
-		}
-		else{
-			results.storeNewResults("test insert unique elements failed, " +
-					"element could not be inserted");
-		}
-		if(removeUniquesTest(myArrayList)){
-			results.storeNewResults("test remove unique elements passed");
-		}
-		else{
-			results.storeNewResults("test remove unique elements failed, " +
-					"element could not be removed");
-		}
-		if(insertDuplicate(myArrayList)){
-			results.storeNewResults("test insert duplicate element passed");
-		}
-		else{
-			results.storeNewResults("test insert duplicate element failed, " +
-					"element could not be inserted");
-		}
-		if(removeDuplicate(myArrayList)){
-			results.storeNewResults("test remove duplicate element passed");
-		}
-		else{
-			results.storeNewResults("test remove duplicate element failed, " +
-					"element could not be removed");
-		}
-		for(int i = 10; i < 26; i++) myArrayList.removeValue(i);
-		if(insertOverFifty(myArrayList)){
-			results.storeNewResults("test insert over 50 elements passed");
-		}
-		else{
-			results.storeNewResults("test insert over 50 elements failed, " +
-					"elements could not be inserted");
-		}
-		if(removeOverFifty(myArrayList)){
-			results.storeNewResults("test remove over 50 elements passed");
-		}
-		else{
-			results.storeNewResults("test remove over 50 elements failed, " +
-					"elements could not be removed");
-		}
-		if(insertOutOfRange(myArrayList)){
-			results.storeNewResults("test insert out of range value passed");
-		}
-		else{
-			results.storeNewResults("test insert out of range value failed, " +
-					"element could not be inserted");
-		}
-		if(indexFound(myArrayList)){
-			results.storeNewResults("test index of element found passed");
-		}
-		else{
-			results.storeNewResults("test index of element found failed, " +
-					"index not found");
-		}
-		if(indexOfNotFound(myArrayList)){
-			results.storeNewResults("test index of element not found passed");
-		}
-		else{
-			results.storeNewResults("test index of element not found failed, " +
-					"index found");
-		}
-		if(sumOfList(myArrayList)){
-			results.storeNewResults("test sum of elements passed");
-		}
-		else{
-			results.storeNewResults("test sum of elements failed, " +
-					"sum " + myArrayList.sum());
-		}
-		if(sizeOfList(myArrayList)){
-			results.storeNewResults("test size of list passed");
-		}
-		else{
-			results.storeNewResults("test size of list failed, " +
-					"incorrect size");
-		}
+		results.storeNewResults("The sum of all the values in the array list is: " + myArrayList.sum());
+		if(capacityIncrease(myArrayList)) results.storeNewResults("test capacityIncrease passed");
+		else results.storeNewResults("test capacityIncrease failed, throws illegal index out of bound exception");
+		if(indexOfNotFound(myArrayList)) results.storeNewResults("test indexOfNotFound passed");
+		else results.storeNewResults("tes indexOfNotFound failed, returns a location of a value that shouldn't be in array list");
+		if(insertOutOfRange(myArrayList))results.storeNewResults("test insertOutOfRange passed");
+		else results.storeNewResults("test insertOutOfRange failed, did not throw illegal argument exception");
+		if(removeElement(myArrayList)) results.storeNewResults("test removeElement passed");
+		else results.storeNewResults("test removeElement failed, array list before and after manipulation were not the same");
+		if(sizeIncrement(myArrayList)) results.storeNewResults("test sizeIncrement passed");
+		else results.storeNewResults("test sizeIncrement failed, size didn't increment correctly");
+		
 	}
 	
-	public boolean insertUniquesTest(MyArrayList myArrayList){
-		boolean bool = true;
-		for(int i = 0; i < 25; i++){
-			myArrayList.insertSorted(i);
-		}
-		for(int i = 0; i < 25; i++){
-			if(myArrayList.indexOf(i) != i) bool = false;
-		}
-		if(myArrayList.sum() != 300) bool = false;
-		return bool;
-	}
-	
-	public boolean removeUniquesTest(MyArrayList myArrayList){
-		boolean bool = true;
-		for(int i = 0; i < 10; i++){
-			myArrayList.removeValue(i);
-		}
-		for(int i = 0; i < 15; i++){
-			if(myArrayList.indexOf(i+10) != i) bool = false;
-		}
-		if(myArrayList.sum() != 255) bool = false;
-		return bool;
-	}
-	
-	public boolean insertDuplicate(MyArrayList myArrayList){
-		boolean bool = true;
-		for(int i = 0; i < 5; i++){
-			myArrayList.insertSorted(25);
-		}
-		if(myArrayList.indexOf(25) != 15) bool = false;
-		if(myArrayList.sum() != 380) bool = false;
-		return bool;
-	}
-	
-	public boolean removeDuplicate(MyArrayList myArrayList){
-		boolean bool = true;
-		myArrayList.removeValue(25);
-		for(int i = 0; i < 15; i++){
-			if(myArrayList.indexOf(i+10) != i) bool = false;
-		}
-		if(myArrayList.sum() != 255) bool = false;
-		return bool;
-	}
-	
-	public boolean insertOverFifty(MyArrayList myArrayList){
-		boolean bool = true;
+	public boolean capacityIncrease(MyArrayList myArrayList){
+		//If it's already bigger than 50, then we know we increased the capacity of the array list at one point
+		if(myArrayList.size() > 50) return true;
+		//Add 51 elements to force a change in array list capacity, since we know initial is 50
 		for(int i = 0; i < 51; i++){
-			myArrayList.insertSorted(i);
+			try{
+				myArrayList.insertSorted(i);
+			}
+			catch(ArrayIndexOutOfBoundsException e){
+				System.err.println("Failed to increase capacity of array");
+				return false;
+			}
 		}
-		for(int i = 0; i < 51; i++){
-			if(myArrayList.indexOf(i) != i) bool = false;
-		}
-		if(myArrayList.sum() != 1275) bool = false;
-		return bool;
-	}
-	
-	public boolean removeOverFifty(MyArrayList myArrayList){
-		boolean bool = true;
-		for(int i = 0; i < 51; i++){
-			myArrayList.removeValue(i);
-		}
-		for(int i = 0; i < 51; i++){
-			if(myArrayList.indexOf(i) != -1) bool = false;
-		}
-		if(myArrayList.sum() != 0) bool = false;
-		return bool;
-	}
-	
-	public boolean insertOutOfRange(MyArrayList myArrayList){
-		boolean bool = true;
-		myArrayList.insertSorted(10002);
-		myArrayList.insertSorted(-1);
-		if(myArrayList.indexOf(-1) == 0) bool = false;
-		if(myArrayList.indexOf(10002) == 1) bool = false;
-		if(myArrayList.sum() != 0) bool = false;
-		return bool;
-	}
-	
-	public boolean indexFound(MyArrayList myArrayList){
-		boolean bool = true;
-		for(int i = 0; i < 20; i++){
-			myArrayList.insertSorted(i);
-		}
-		if(myArrayList.indexOf(15) != 15) bool = false;
-		for(int i = 0; i < 20; i++){
-			myArrayList.removeValue(i);
-		}
-		return bool;
+		return true;
 	}
 	
 	public boolean indexOfNotFound(MyArrayList myArrayList){
-		boolean bool = true;
-		if(myArrayList.indexOf(1) != -1) bool = false;
-		return bool;
+		myArrayList.removeValue(5000);
+		if(myArrayList.indexOf(5000) != -1) return false;
+		return true;
 	}
 	
-	public boolean sumOfList(MyArrayList myArrayList){
-		boolean bool = true;
-		for(int i = 0; i < 15; i++){
-			myArrayList.insertSorted(i);
+	public boolean indexOfFoundValue(MyArrayList myArrayList){
+		myArrayList.removeValue(0);
+		myArrayList.removeValue(1);
+		myArrayList.removeValue(2);
+		myArrayList.insertSorted(1);
+		myArrayList.insertSorted(0);
+		myArrayList.insertSorted(1);
+		myArrayList.insertSorted(2);
+		if(myArrayList.indexOf(0) == 0 && myArrayList.indexOf(1) == 1 && myArrayList.indexOf(2) == 3) return true;
+		return false;
+	}
+	
+	public boolean insertOutOfRange(MyArrayList myArrayList){
+		try{
+			myArrayList.insertSorted(10001);
 		}
-		if(myArrayList.sum() != 105) bool = false;
-		return bool;
+		catch(IllegalArgumentException e){
+			System.err.println("Caught expected exception for illegal value");
+			return true;
+		}
+		return false;
 	}
 	
-	public boolean sizeOfList(MyArrayList myArrayList){
-		boolean bool = true;
-		if(myArrayList.size() != 15) bool = false;
-		return bool;
+	public boolean removeElement(MyArrayList myArrayList){
+		myArrayList.removeValue(5000);
+		int val = 0;
+		boolean valFound = false;
+		MyArrayList temp = new MyArrayList();
+		int[] arr = new int[10000];
+		int prev = 0;
+		int prevVal = 0;
+		for(int i = 0; i < 10000; i++){
+			arr[i] = myArrayList.indexOf(i);
+		}
+		for(int i = 0; i < 10000; i++){
+			if(myArrayList.indexOf(i) == -1 && !valFound){
+				val = i;
+				valFound = true;
+				break;
+			}
+			if(arr[i] != -1){
+				if(i != 9999) for(int j = 0; j < arr[i]-prev; j++) temp.insertSorted(prevVal);
+				else for(int j = 0; j < myArrayList.size()-arr[i]; j++) temp.insertSorted(prevVal);
+				prev = arr[i];
+				prevVal = i;
+			}
+		}
+		for(int j = 0; j < myArrayList.size()-prev; j++) temp.insertSorted(prevVal);
+		myArrayList.insertSorted(val);
+		myArrayList.insertSorted(val);
+		myArrayList.insertSorted(val);
+		myArrayList.removeValue(val);
+		if(myArrayList.equals(temp)){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean sizeIncrement(MyArrayList myArrayList){
+		myArrayList.removeValue(5000);
+		int val = 0;
+		boolean valFound = false;
+		MyArrayList temp = new MyArrayList();
+		int[] arr = new int[10000];
+		int prev = 0;
+		int prevVal = 0;
+		for(int i = 0; i < 10000; i++){
+			arr[i] = myArrayList.indexOf(i);
+		}
+		for(int i = 0; i <= 10000; i++){
+			if(myArrayList.indexOf(i) == -1 && !valFound){
+				val = i;
+				valFound = true;
+				break;
+			}
+			if(arr[i] != -1){
+				if(i != 9999) for(int j = 0; j < arr[i]-prev; j++) temp.insertSorted(prevVal);
+				else for(int j = 0; j < myArrayList.size()-arr[i]; j++) temp.insertSorted(prevVal);
+				prev = arr[i];
+				prevVal = i;
+			}
+		}
+		for(int j = 0; j < myArrayList.size()-prev; j++) temp.insertSorted(prevVal);
+		myArrayList.insertSorted(val);
+		myArrayList.insertSorted(val);
+		myArrayList.insertSorted(val);
+		if(myArrayList.size() == temp.size()+3){
+			return true;
+		}
+		return false;
 	}
 }

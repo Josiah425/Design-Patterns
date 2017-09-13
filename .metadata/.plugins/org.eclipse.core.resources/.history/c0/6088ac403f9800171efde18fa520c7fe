@@ -1,0 +1,53 @@
+
+public class MyArrayListTest {
+	
+	public void testMe(MyArrayList myArrayList, Results results){
+		
+	}
+	
+	
+	
+	public boolean insertOutOfRange(MyArrayList myArrayList){
+		try{
+			myArrayList.insertSorted(10001);
+		}
+		catch(IllegalArgumentException e){
+			System.err.println("Caught expected exception for illegal value");
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean indexFound(MyArrayList myArrayList){
+		boolean bool = true;
+		for(int i = 0; i < 20; i++){
+			myArrayList.insertSorted(i);
+		}
+		if(myArrayList.indexOf(15) != 15) bool = false;
+		for(int i = 0; i < 20; i++){
+			myArrayList.removeValue(i);
+		}
+		return bool;
+	}
+	
+	public boolean indexOfNotFound(MyArrayList myArrayList){
+		boolean bool = true;
+		if(myArrayList.indexOf(1) != -1) bool = false;
+		return bool;
+	}
+	
+	public boolean sumOfList(MyArrayList myArrayList){
+		boolean bool = true;
+		for(int i = 0; i < 15; i++){
+			myArrayList.insertSorted(i);
+		}
+		if(myArrayList.sum() != 105) bool = false;
+		return bool;
+	}
+	
+	public boolean sizeOfList(MyArrayList myArrayList){
+		boolean bool = true;
+		if(myArrayList.size() != 15) bool = false;
+		return bool;
+	}
+}

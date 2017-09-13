@@ -1,0 +1,48 @@
+
+public class MyArrayListTest {
+	
+	public void testMe(MyArrayList myArrayList, Results results){
+		
+		if(insertOutOfRange(myArrayList))results.storeNewResults("test insertOutOfRange passed");
+		else results.storeNewResults("test insertOutOfRange failed, did not throw illegal argument exception");
+		if(removeElement(myArrayList)) results.storeNewResults("test removeElement passed");
+		else results.storeNewResults("test removeElement failed, array list before and after manipulation were not the same");
+	}
+	
+	public boolean indexOfNotFound(MyArrayList myArrayList){
+		myArrayList.removeValue(5000);
+		if(myArrayList.indexOf(5000) != -1) return false;
+		return true;
+	}
+	
+	public boolean insertOutOfRange(MyArrayList myArrayList){
+		try{
+			myArrayList.insertSorted(10001);
+		}
+		catch(IllegalArgumentException e){
+			System.err.println("Caught expected exception for illegal value");
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean removeElement(MyArrayList myArrayList){
+		myArrayList.removeValue(5000);
+		int val = 0;
+		MyArrayList temp = myArrayList;
+		for(int i = 0; i < 10000; i++){
+			if(myArrayList.indexOf(i) == -1){
+				val = i;
+				break;
+			}
+		}
+		myArrayList.insertSorted(val);
+		myArrayList.insertSorted(val);
+		myArrayList.insertSorted(val);
+		myArrayList.removeValue(val);
+		if(myArrayList == temp){
+			return true;
+		}
+		return false;
+	}
+}

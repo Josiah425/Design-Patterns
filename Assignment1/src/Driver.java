@@ -1,24 +1,28 @@
 import java.io.File;
 
 public class Driver {
-
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		File fin;
-		MyArrayListTest tests = new MyArrayListTest();
-		MyArrayList myArrayList = new MyArrayList();
-		Results results = new Results();
-		try{
-			fin = new File(args[0]);
-			tests.testMe(myArrayList, results);
-			for(int i = 0; i < results.getStringArrSize(); i++){
-				results.writeToStdout(results.getString(i));
+		File fin = new File(args[0]);
+		FileProcessor fis = new FileProcessor(fin);
+		String temp;
+		MyArrayList fileArrayList = new MyArrayList();
+		while((temp = fis.readLine()) != null){
+			try{
+				int element = Integer.parseInt(temp);
+				fileArrayList.insertSorted(element);
+			}
+			catch(NumberFormatException e){
+				System.err.println("Invalid type");
 			}
 		}
-		catch(Exception e){
-			e.printStackTrace();
+		MyArrayListTest tests = new MyArrayListTest();
+		Results resultsFileArrayList = new Results();
+		tests.testMe(fileArrayList, resultsFileArrayList);
+		for(int i = 0; i < resultsFileArrayList.getStringArrSize(); i++){
+			resultsFileArrayList.writeToStdout(resultsFileArrayList.getString(i));
 		}
 
 	}

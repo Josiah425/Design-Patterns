@@ -1,0 +1,41 @@
+import java.io.File;
+
+public class Driver {
+	
+	public void swap(String s, String s2){
+		String temp = s;
+		s = s2;
+		s2 = temp;
+	}
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		String s = "fall";
+		String s2 = "Spring";
+		swap(s, s2);
+		File fin = new File(args[0]);
+		FileProcessor fis = new FileProcessor(fin);
+		String temp;
+		MyArrayList fileArrayList = new MyArrayList();
+		while((temp = fis.readLine()) != null){
+			int element = Integer.parseInt(temp);
+			fileArrayList.insertSorted(element);
+		}
+		MyArrayListTest tests = new MyArrayListTest();
+		MyArrayList myArrayList = new MyArrayList();
+		Results resultsMyArrayList = new Results();
+		Results resultsFileArrayList = new Results();
+		tests.testMe(fileArrayList, resultsFileArrayList);
+		tests.testMe(myArrayList, resultsMyArrayList);
+		for(int i = 0; i < resultsMyArrayList.getStringArrSize(); i++){
+			resultsMyArrayList.writeToStdout(resultsMyArrayList.getString(i));
+		}
+		for(int i = 0; i < resultsFileArrayList.getStringArrSize(); i++){
+			resultsFileArrayList.writeToStdout(resultsFileArrayList.getString(i));
+		}
+
+	}
+
+}

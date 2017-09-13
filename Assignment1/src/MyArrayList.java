@@ -30,10 +30,9 @@ public class MyArrayList {
 	 * 
 	 * @param (int) newValue
 	 */
-	void insertSorted(int newValue){
+	public void insertSorted(int newValue){
 		if(newValue < 0 || newValue > 10000){
-			System.err.println("Array List can only accept values between 0 and 10000, request ignored\n");
-			return;
+			throw new IllegalArgumentException("Error: you can only insert integers between 0 and 10000");
 		}
 		if(inserted == size){
 			int[] temp = new int[size];
@@ -68,7 +67,7 @@ public class MyArrayList {
 	 * 
 	 * @param (int) value
 	 */
-	void removeValue(int value){
+	public void removeValue(int value){
 		if(inserted == 0){
 			System.err.println("Array List is empty, request ignored\n");
 			return;
@@ -87,8 +86,9 @@ public class MyArrayList {
 			}
 		}
 		for(int i = index; i < inserted; i++){
-			arr[i] = arr[i+shift];
-			if(i >= arr.length-2*shift){
+			if(i+shift < size) arr[i] = arr[i+shift];
+			else arr[i] = 10001;
+			if(i >= arr.length-2*shift && i+shift < size){
 				arr[i+shift] = 10001;
 			}
 		}
@@ -102,7 +102,7 @@ public class MyArrayList {
 	 * @param (int) value
 	 * @return (int) first index of value in array -> -1 if not found
 	 */
-	int indexOf(int value){
+	public int indexOf(int value){
 		if(value < 0 || value > 10000){
 			System.err.println("Values can only be between 0 and 10000\n");
 			return -1;
@@ -118,7 +118,7 @@ public class MyArrayList {
 	 * 
 	 * @return (int) inserted
 	 */
-	int size(){
+	public int size(){
 		return inserted;
 	}
 	
@@ -127,7 +127,7 @@ public class MyArrayList {
 	 * 
 	 * @return (int) sum
 	 */
-	int sum(){
+	public int sum(){
 		int sum = 0;
 		for(int i = 0; i < inserted; i++){
 			sum += arr[i];
@@ -138,8 +138,16 @@ public class MyArrayList {
 	/**
 	 * Prints to System.out all valid elements in the array
 	 */
-	void toStr(){
+	public void toStr(){
 		for(int i = 0; i < inserted; i++) System.out.print(i + ": " + arr[i] + ", ");
 		System.out.println();
+	}
+	
+	public boolean equals(MyArrayList other){
+		if(size() != other.size()) return false;
+		for(int i = 0; i < 10000; i++){
+			if(indexOf(i) != other.indexOf(i)) return false;
+		}
+		return true;
 	}
 }

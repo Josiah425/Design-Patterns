@@ -1,0 +1,28 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class FileProcessor {
+	private FileInputStream fis;
+	private BufferedReader br;
+	
+	FileProcessor(File fin){
+		fis = new FileInputStream(fin);
+		br = new BufferedReader(new InputStreamReader(fis));
+	}
+	
+	public String readLine(){
+		String line;
+		try{
+			line = br.readLine();
+		}
+		return line;
+	}
+	
+	public void close(){
+		br.close();
+		fis.close();
+	}
+}

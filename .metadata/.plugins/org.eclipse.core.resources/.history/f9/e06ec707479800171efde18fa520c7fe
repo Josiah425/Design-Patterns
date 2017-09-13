@@ -1,0 +1,53 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class FileProcessor {
+	private FileInputStream fis;
+	private BufferedReader br;
+	
+	FileProcessor(File fin){
+		try{
+			fis = new FileInputStream(fin);
+		}
+		catch(IOException e){
+			System.err.println("Error creating FileInputStream");
+			System.exit(1);
+		}
+		br = new BufferedReader(new InputStreamReader(fis));
+	}
+	
+	public String readLine(){
+		String line = null;
+		try{
+			line = br.readLine();
+			Integer.parseInt(line);
+		}
+		catch(IOException e){
+			System.err.println("Error reading line from BufferedReader");
+		}
+		catch(NumberFormatException e){
+			System.err.println("Error, type is not an integer");
+			try{
+				line = br.readLine();
+				line = "-1";
+			}catch(IOException e1){
+				
+			}
+		}
+		return line;
+	}
+	
+	public void close(){
+		try{
+			br.close();
+			fis.close();
+		}
+		catch(IOException e){
+			System.err.println("Error closing FileInputStream & BufferedReader");
+			System.exit(1);
+		}
+	}
+}
