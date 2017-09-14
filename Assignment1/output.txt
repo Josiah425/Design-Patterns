@@ -1,0 +1,10 @@
+The sum of all the values in the array list is: 278
+test capacityIncrease passed
+test indexOfNotFound passed
+test insertOutOfRange passed
+test removeElement passed
+test sizeIncrement passed
+test insertUniqueValue passed
+test indexOfFound passed
+test sumCheck passed
+test sizeCheck passed

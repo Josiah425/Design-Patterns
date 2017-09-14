@@ -1,0 +1,31 @@
+import java.io.File;
+
+public class Driver {
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		File fin = new File(args[0]);
+		if((fin.exists())) System.exit(0);
+		FileProcessor fis = new FileProcessor(fin);
+		String temp;
+		MyArrayList fileArrayList = new MyArrayList();
+		while((temp = fis.readLine()) != null){
+			try{
+				int element = Integer.parseInt(temp);
+				fileArrayList.insertSorted(element);
+			}
+			catch(NumberFormatException e){
+				System.err.println("Invalid type");
+			}
+		}
+		MyArrayListTest tests = new MyArrayListTest();
+		Results resultsFileArrayList = new Results();
+		tests.testMe(fileArrayList, resultsFileArrayList);
+		for(int i = 0; i < resultsFileArrayList.getStringArrSize(); i++){
+			resultsFileArrayList.writeToFile(resultsFileArrayList.getString(i));
+		}
+
+	}
+
+}

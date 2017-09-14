@@ -1,5 +1,5 @@
 /**
-* MyArrayList program that creates the array list data structure
+* MyArrayList program that simulates the array list data structure
 *
 * @author  Josiah Bailey
 * @since   09/04/2017
@@ -32,7 +32,8 @@ public class MyArrayList {
 	 */
 	public void insertSorted(int newValue){
 		if(newValue < 0 || newValue > 10000){
-			throw new IllegalArgumentException("Error: you can only insert integers between 0 and 10000");
+			System.err.println("Error: you can only insert integers between 0 and 10000");
+			return;
 		}
 		if(inserted == size){
 			int[] temp = new int[size];
@@ -88,9 +89,6 @@ public class MyArrayList {
 		for(int i = index; i < inserted; i++){
 			if(i+shift < size) arr[i] = arr[i+shift];
 			else arr[i] = 10001;
-			if(i >= arr.length-2*shift && i+shift < size){
-				arr[i+shift] = 10001;
-			}
 		}
 		inserted -= shift;
 	}
@@ -143,6 +141,12 @@ public class MyArrayList {
 		System.out.println();
 	}
 	
+	/**
+	 * Check if two array lists are equal to each other
+	 * 
+	 * @param (MyArrayList) other
+	 * @return (boolean)
+	 */
 	public boolean equals(MyArrayList other){
 		if(size() != other.size()) return false;
 		for(int i = 0; i < 10000; i++){

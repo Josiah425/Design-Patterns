@@ -2034,3 +2034,13 @@ Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.
 
 !ENTRY org.eclipse.core.resources 2 10035 2017-09-07 23:25:41.688
 !MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+!SESSION 2017-09-13 11:59:09.279 -----------------------------------------------
+eclipse.buildId=I20090611-1540
+java.version=1.8.0_144
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os win32 -ws win32 -arch x86 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2017-09-13 11:59:13.905
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
