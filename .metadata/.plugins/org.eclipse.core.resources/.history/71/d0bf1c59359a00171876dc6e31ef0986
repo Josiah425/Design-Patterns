@@ -36,6 +36,9 @@ public class FileProcessor {
 		catch(IOException e){
 			System.err.println("Error reading line from BufferedReader");
 		}
+		try{
+			Integer.parseInt(line);
+		}
 		return line;
 	}
 	

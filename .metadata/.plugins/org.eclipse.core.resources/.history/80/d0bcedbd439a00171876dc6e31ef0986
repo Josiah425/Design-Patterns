@@ -29,7 +29,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	/**
 	 * Write to file one line at a time
 	 * 
-	 * @param (String) s
+	 * @params (String) s
 	 */
 	public void writeToFile(String s){
 		out.println(s);
@@ -38,7 +38,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	/**
 	 * Write to screen one line at a time
 	 * 
-	 * @param (String) s
+	 * @params (String) s
 	 */
 	public void writeToStdout(String s){
 		System.out.println(s);
@@ -47,24 +47,21 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	/**
 	 * Store result in string array list
 	 * 
-	 * @param (String) s
+	 * @params (String) s
 	 */
 	public void storeNewResults(String s){
 		sal.add(s);
 	}
 	
 	/**
-	 * Get a string from string array list
+	 * Write to file one line at a time
 	 * 
-	 * @param (int) i
+	 * @params (String) s
 	 */
 	public String getString(int i){
 		return sal.get(i);
 	}
 	
-	/**
-	 * Get size of the string array list
-	 */
 	public int getStringArrSize(){
 		return sal.size();
 	}

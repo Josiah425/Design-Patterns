@@ -47,9 +47,5 @@ public class FileProcessor {
 			br.close();
 			fis.close();
 		}
-		catch(IOException e){
-			System.err.println("Error closing FileInputStream & BufferedReader");
-			System.exit(1);
-		}
 	}
 }

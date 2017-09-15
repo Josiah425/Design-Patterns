@@ -3,11 +3,11 @@ import java.io.File;
 public class Driver {
 	/**
 	 * Creates a MyArrayList object, performs tests on it, and outputs
-	 * results
+	 * results to file
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		if(args.length < 1){
+		if(args.length != 2){
 			System.err.println("Program requires 2 command line arguments");
 			System.exit(0);
 		}
@@ -20,13 +20,13 @@ public class Driver {
 		String temp;
 		MyArrayList fileArrayList = new MyArrayList();
 		while((temp = fis.readLine()) != null){
-			try{
+			//try{
 				int element = Integer.parseInt(temp);
 				fileArrayList.insertSorted(element);
-			}
-			catch(NumberFormatException e){
+			//}
+			//catch(NumberFormatException e){
 				System.err.println("Invalid type, only accept integers");
-			}
+			//}
 		}
 		MyArrayListTest tests = new MyArrayListTest();
 		Results resultsFileArrayList = new Results(args[1]);

@@ -39,9 +39,6 @@ public class FileProcessor {
 		return line;
 	}
 	
-	/**
-	 * Closes the buffered reader and the file input stream
-	 */
 	public void close(){
 		try{
 			br.close();

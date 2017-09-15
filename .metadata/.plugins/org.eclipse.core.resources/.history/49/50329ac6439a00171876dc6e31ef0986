@@ -63,7 +63,9 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	}
 	
 	/**
-	 * Get size of the string array list
+	 * Write to file one line at a time
+	 * 
+	 * @params (String) s
 	 */
 	public int getStringArrSize(){
 		return sal.size();

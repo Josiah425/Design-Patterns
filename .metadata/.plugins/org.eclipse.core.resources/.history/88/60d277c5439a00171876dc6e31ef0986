@@ -62,9 +62,6 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 		return sal.get(i);
 	}
 	
-	/**
-	 * Get size of the string array list
-	 */
 	public int getStringArrSize(){
 		return sal.size();
 	}

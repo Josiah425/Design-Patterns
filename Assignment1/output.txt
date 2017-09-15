@@ -7,4 +7,5 @@ test sizeIncrement passed
 test insertUniqueValue passed
 test indexOfFound passed
 test sumCheck passed
-test sizeCheck passed
+test sizeDecrement passed
+test insertDuplicate passed

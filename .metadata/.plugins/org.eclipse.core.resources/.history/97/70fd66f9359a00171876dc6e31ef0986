@@ -36,6 +36,13 @@ public class FileProcessor {
 		catch(IOException e){
 			System.err.println("Error reading line from BufferedReader");
 		}
+		try{
+			Integer.parseInt(line);
+		}
+		catch(NumberFormatException e){
+			line = "-1";
+			System.err.println("Invalid type, only accept integers");
+		}
 		return line;
 	}
 	

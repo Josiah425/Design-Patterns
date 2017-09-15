@@ -8,10 +8,6 @@ public class FileProcessor {
 	private FileInputStream fis;
 	private BufferedReader br;
 	
-	/**
-	 * Constructor for a FileProcessor
-	 * @param (File) fin
-	 */
 	FileProcessor(File fin){
 		try{
 			fis = new FileInputStream(fin);
@@ -23,11 +19,6 @@ public class FileProcessor {
 		br = new BufferedReader(new InputStreamReader(fis));
 	}
 	
-	/**
-	 * Reads a line from the buffered reader
-	 * 
-	 * @return
-	 */
 	public String readLine(){
 		String line = null;
 		try{
@@ -39,9 +30,6 @@ public class FileProcessor {
 		return line;
 	}
 	
-	/**
-	 * Closes the buffered reader and the file input stream
-	 */
 	public void close(){
 		try{
 			br.close();

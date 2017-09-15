@@ -2,12 +2,10 @@ import java.io.File;
 
 public class Driver {
 	/**
-	 * Creates a MyArrayList object, performs tests on it, and outputs
-	 * results
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		if(args.length < 1){
+		if(args.length != 2){
 			System.err.println("Program requires 2 command line arguments");
 			System.exit(0);
 		}

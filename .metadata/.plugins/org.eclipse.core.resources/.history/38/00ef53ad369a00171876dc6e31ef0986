@@ -16,7 +16,7 @@ public class MyArrayList {
 	 */
 	MyArrayList(){
 		arr = new int[INITIAL_SIZE];
-		//set values to 10001, out of range of valid values
+		//set values to 10001, out of range of values
 		for(int i = 0; i < INITIAL_SIZE; i++){
 			arr[i] = 10001;
 		}
@@ -60,6 +60,7 @@ public class MyArrayList {
 			}
 		}
 		inserted++;
+		System.out.println(inserted);
 	}
 	
 	/**
@@ -69,6 +70,10 @@ public class MyArrayList {
 	 * @param (int) value
 	 */
 	public void removeValue(int value){
+		/*if(inserted == 0){
+			System.err.println("Array List is empty, request ignored\n");
+			return;
+		}*/
 		int shift = 0;
 		for(int i = 0; i < inserted; i++){
 			if(arr[i] == value){
@@ -145,7 +150,7 @@ public class MyArrayList {
 	 */
 	public boolean equals(MyArrayList other){
 		if(size() != other.size()) return false;
-		for(int i = 0; i < 10001; i++){
+		for(int i = 0; i < 10000; i++){
 			if(indexOf(i) != other.indexOf(i)) return false;
 		}
 		return true;
