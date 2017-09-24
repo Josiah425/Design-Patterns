@@ -1,0 +1,70 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+
+public class Results implements FileDisplayInterface, StdoutDisplayInterface{
+	private ArrayList<String> sal = new ArrayList<String>();
+	private String outputFileName = "output.txt";
+	private PrintWriter out;
+	
+	Results(String output){
+		outputFileName = output;
+		try{
+			out = new PrintWriter(outputFileName, "UTF-8");
+		}
+		catch(IOException e){
+			System.err.println("Could not create/load output file");
+		}
+	}
+	
+	/**
+	 * close the PrintWriter when we are done with it
+	 */
+	public void close(){
+		out.close();
+	}
+	
+	/**
+	 * Write to file one line at a time
+	 * 
+	 * @param (String) s
+	 */
+	public void writeToFile(String s){
+		out.println(s);
+	}
+	
+	/**
+	 * Write to screen one line at a time
+	 * 
+	 * @param (String) s
+	 */
+	public void writeToStdout(String s){
+		System.out.println(s);
+	}
+	
+	/**
+	 * Store result in string array list
+	 * 
+	 * @param (String) s
+	 */
+	public void storeNewResults(String s){
+		sal.add(s);
+	}
+	
+	/**
+	 * Get a string from string array list
+	 * 
+	 * @param (int) i
+	 */
+	public String getString(int i){
+		return sal.get(i);
+	}
+	
+	/**
+	 * Get size of the string array list
+	 */
+	public int getStringArrSize(){
+		return sal.size();
+	}
+}
