@@ -132,10 +132,10 @@ public class MyArrayList {
 	/**
 	 * Prints to System.out all valid elements in the array
 	 */
-	public String toString(){
+	@Override
+	public void toString(){
 		for(int i = 0; i < inserted; i++) System.out.print(i + ": " + arr[i] + ", ");
 		System.out.println();
-		return "";
 	}
 	
 	/**

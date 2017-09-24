@@ -9,6 +9,7 @@ public class Results implements FileDisplayInterface, StdoutDisplayInterface{
 	private PrintWriter out;
 	
 	Results(String output){
+		System.out.println(output);
 		outputFileName = output;
 		try{
 			out = new PrintWriter(outputFileName, "UTF-8");

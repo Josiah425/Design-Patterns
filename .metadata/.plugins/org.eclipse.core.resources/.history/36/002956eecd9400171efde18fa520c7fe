@@ -1,4 +1,0 @@
-
-public interface StdoutDisplayInterface {
-	void writeToStdOut(String s);
-}

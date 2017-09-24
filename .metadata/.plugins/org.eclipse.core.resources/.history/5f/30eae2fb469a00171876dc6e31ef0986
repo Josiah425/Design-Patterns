@@ -135,7 +135,7 @@ public class MyArrayList {
 	public String toString(){
 		for(int i = 0; i < inserted; i++) System.out.print(i + ": " + arr[i] + ", ");
 		System.out.println();
-		return "";
+		return "":
 	}
 	
 	/**
