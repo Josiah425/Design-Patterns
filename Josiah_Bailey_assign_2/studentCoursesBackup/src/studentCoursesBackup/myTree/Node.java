@@ -17,7 +17,20 @@ public class Node{
 		left = null;
 	}
 	
-	public void insert(Node head, int bNum){
+	public void insertCourse(Node head, int bNum, string course){
+		Node node = search(head, bNum);
+		if(node == null) return;
+		boolean exists = false;
+		for(int i = 0; i < node.courses.size(); i++){
+			if(node.courses.get(i).equals(course)){
+				exists = true;
+				break;
+			}
+		}
+		if(!exists) node.courses.add(course);
+	}
+	
+	public void insertNode(Node head, int bNum){
 		if(head == null){
 			head = new Node(bNum);
 			return head;
@@ -47,11 +60,18 @@ public class Node{
 				head = head.left;
 			}
 		}
-		return head;
+		return null;
 	}
 	
-	public void delete(Node head, int bNum){
-		while(head != null){
+	public void deleteCourse(Node head, int bNum, string course){
+		Node node = search(head, bNum);
+		if(node == null) return;
+		for(int i = 0; i < node.courses.size(); i++){
+			String temp = node.courses.get(i);
+			if(temp.equals(course)) node.courses.remove(i);
+		}
+		
+		/*while(head != null){
 			if(bNum > head.getBNumber()){
 				head = head.right;
 			}
@@ -72,7 +92,7 @@ public class Node{
 			}
 		}
 		
-		return head;
+		return head;*/
 	}
 	
 	public int getMin(Node head){
